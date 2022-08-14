@@ -2,6 +2,7 @@ package spring_hibernate.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import spring_hibernate.dao.UserDao;
 import spring_hibernate.model.User;
 
@@ -17,11 +18,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
-        return null;
+        return userDao.getAllUsers();
     }
 
     @Override
+    @Transactional
     public User getUserById(int id) {
         return null;
     }

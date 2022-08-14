@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import java.util.List;
 @Repository
 public class UserDaoImpl implements UserDao {
-    @Autowired
+   @Autowired
     private EntityManagerFactory factory;
 
     @Override
@@ -22,8 +22,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getAllUsers() {
         var manager = factory.createEntityManager();
-        manager.getTransaction().begin();
-        return manager.createQuery("from users", User.class).getResultList();
+        var users = manager.createQuery("from User", User.class).getResultList();
+        return users;
 
     }
 
