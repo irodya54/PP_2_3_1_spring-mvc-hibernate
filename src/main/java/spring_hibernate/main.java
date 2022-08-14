@@ -9,12 +9,10 @@
 //    public static void main(String[] args) {
 //        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 //        UserService service = context.getBean(UserService.class);
-//        User user = context.getBean(User.class);
-//        user.setName("Radion");
-//       user.setSurName("Merzlyakov");
-//       user.setAge(31);
-//      service.addUser(user);
-//        var allUsers = service.getAllUsers();
-//        System.out.println(allUsers);
+//        User user = service.getUserById(16);
+//        user.setName("ivan");
+//        service.updateUser(user);
+//        System.out.println(user);
+//
 //    }
 //}

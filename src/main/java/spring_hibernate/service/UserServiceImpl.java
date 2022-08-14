@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService{
     @Autowired
     private UserDao userDao;
     @Override
+    @Transactional
     public void addUser(User user) {
         userDao.addUser(user);
     }
@@ -26,6 +27,12 @@ public class UserServiceImpl implements UserService{
     @Override
     @Transactional
     public User getUserById(int id) {
-        return null;
+        return userDao.getUserById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 }

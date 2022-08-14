@@ -8,4 +8,5 @@ public interface UserService {
     void addUser(User user);
     List<User> getAllUsers();
     User getUserById(int id);
+    public void updateUser(User user);
 }
