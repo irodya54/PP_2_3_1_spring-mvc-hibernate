@@ -25,22 +25,31 @@ public class MyController {
         model.addAttribute(user);
         return "info-user";
     }
-    @PostMapping()
+    @PostMapping("")
     public String saveUser(@ModelAttribute("user") User user) {
-        service.addUser(user);
+        if (user.getId() == 0) {
+            service.addUser(user);
+            System.out.println("saveuser");
+        } else {
+            service.updateUser(user);
+            System.out.println("update");
+        }
+
         return "redirect:/";
     }
     @GetMapping("edit/{id}")
     public String returnUser(@PathVariable("id") int id, Model model) {
         User user = service.getUserById(id);
-        model.addAttribute(user);
-        System.out.println("update1");
+        model.addAttribute("user", user);
+        System.out.println(user.getId());
         return "info-user";
+
     }
-    @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String updateUser(@ModelAttribute("user") User user) {
-        service.updateUser(user);
-        System.out.println("update2");
+    @RequestMapping("delete/{id}")
+    public String deleteUser(@PathVariable("id") int id, Model model) {
+        System.out.println("postDeleteUser");
+        service.deleteUser(id);
+        System.out.println("deleteUser");
         return "redirect:/";
     }
 }
