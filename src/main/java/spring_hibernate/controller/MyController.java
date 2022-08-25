@@ -10,8 +10,12 @@ import spring_hibernate.service.UserService;
 @Controller
 public class MyController {
 
-    @Autowired
-    private UserService service;
+    private final UserService service;
+
+    public MyController(UserService service) {
+        this.service = service;
+    }
+
 
     @GetMapping("/")
     public String getAllUsers(Model model) {

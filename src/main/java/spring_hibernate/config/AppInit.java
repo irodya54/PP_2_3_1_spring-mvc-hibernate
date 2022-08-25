@@ -1,5 +1,6 @@
 package spring_hibernate.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
